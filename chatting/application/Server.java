@@ -30,7 +30,17 @@ public class Server extends JFrame {
     l2.setBounds(40,0,60,60);
     p1.add(l2);
     
+    JLabel l3 = new JLabel("Lucifer");
+    l3.setFont(new Font("SAN_SERIF",Font.BOLD,20));
+    l3.setForeground(Color.white);
+    l3.setBounds(110,10,100,20);
+    p1.add(l3);
     
+    JLabel l4 = new JLabel("active");
+    l4.setFont(new Font("SAN_SERIF",Font.ITALIC,14));
+    l4.setForeground(Color.white);
+    l4.setBounds(110,28,100,20);
+    p1.add(l4);
     
     
 
