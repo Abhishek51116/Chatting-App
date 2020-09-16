@@ -3,8 +3,9 @@ package chatting.application;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Server extends JFrame {
+public class Server extends JFrame implements ActionListener {
     JPanel p1;
     
     Server(){
@@ -22,6 +23,12 @@ public class Server extends JFrame {
     JLabel l1 = new JLabel(i3);
     l1.setBounds(5,5,30,30);
     p1.add(l1);
+    
+    l1.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent ae){
+            System.exit(0);
+        }
+    });
     
     ImageIcon i4 = new ImageIcon(ClassLoader.getSystemResource("chatting/application/ICONS/lucifer.jpg")); 
     Image i5 = i4.getImage().getScaledInstance(60,60,Image.SCALE_DEFAULT);
@@ -48,6 +55,9 @@ public class Server extends JFrame {
     setSize(500,600);
     setLocation(400,200);
     setVisible(true);
+    }
+    public void actionPerformed(ActionEvent ae){
+        
     }
     
     public static void main(String[] args){
