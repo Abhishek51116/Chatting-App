@@ -56,6 +56,10 @@ public class Server extends JFrame implements ActionListener {
     t1.setFont(new Font("SANS_SERIF",Font.BOLD,16));
     add(t1);
     
+    b1 = new JButton("SEND");
+    b1.setBounds(410,550,80,40);
+    add(b1);
+    
     setLayout(null);
     setSize(500,600);
     setLocation(400,200);    
