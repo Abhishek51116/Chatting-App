@@ -58,6 +58,8 @@ public class Server extends JFrame implements ActionListener {
     
     b1 = new JButton("SEND");
     b1.setBounds(410,550,80,40);
+    b1.setBackground(new Color(7, 94, 84));
+    b1.setForeground(Color.white);
     add(b1);
     
     setLayout(null);
