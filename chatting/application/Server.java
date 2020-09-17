@@ -7,6 +7,8 @@ import java.awt.event.*;
 
 public class Server extends JFrame implements ActionListener {
     JPanel p1;
+    JTextField t1;
+    JButton b1;
     
     Server(){
     
@@ -49,8 +51,11 @@ public class Server extends JFrame implements ActionListener {
     l4.setBounds(110,28,100,20);
     p1.add(l4);
     
+    t1 = new JTextField();
+    t1.setBounds(5,550,400,40);
+    t1.setFont(new Font("SANS_SERIF",Font.BOLD,16));
+    add(t1);
     
-
     setLayout(null);
     setSize(500,600);
     setLocation(400,200);    
