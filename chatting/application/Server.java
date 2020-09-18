@@ -76,7 +76,7 @@ public class Server extends JFrame implements ActionListener {
     
     setLayout(null);
     setSize(500,600);
-    setLocation(400,200);    
+    setLocation(600,00);    
     setUndecorated(true);
     setVisible(true);
     }
@@ -87,6 +87,7 @@ public class Server extends JFrame implements ActionListener {
     }
     
     public static void main(String[] args){
-        new Server();
+        new Server().setVisible(true);
+        new Client().setVisible(true);
     }
 }
