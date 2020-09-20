@@ -4,14 +4,22 @@ package chatting.application;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.*;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Server extends JFrame implements ActionListener {
     JPanel p1;
     JTextField t1;
     JButton b1;
-    JTextArea a1;
+    static JTextArea a1;
+    static ServerSocket skt;
+    static Socket s;
+    static DataInputStream din;
+    static DataOutputStream dout;
     
-    Server(){
+    public Server(){
     
         p1 = new JPanel();
         p1.setLayout(null);
@@ -81,13 +89,39 @@ public class Server extends JFrame implements ActionListener {
     setVisible(true);
     }
     public void actionPerformed(ActionEvent ae){
-        String out = t1.getText();
-        t1.setText(" ");
-        a1.setText(a1.getText() + "\n\t\t\t" + out);
+       
+       
+        try {
+            String out = t1.getText();
+            t1.setText("");
+            a1.setText(a1.getText() + "\n\t\t\t" + out);
+           
+                dout.writeUTF(out);
+        } catch (IOException ex) {
+            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       
+        
     }
     
     public static void main(String[] args){
-        new Server().setVisible(true);
-        new Client().setVisible(true);
+        new Server();
+        String msgInput = "";
+        try{
+            skt = new ServerSocket(6001);
+            s = skt.accept();
+            din = new DataInputStream(s.getInputStream());
+            dout = new DataOutputStream(s.getOutputStream());
+            
+            msgInput = din.readUTF();
+            a1.setText(a1.getText()+ "\n" + msgInput);
+            
+            skt.close();
+            s.close();
+        }catch(Exception e){}
+        
     }
+    
+    
 }
