@@ -114,12 +114,12 @@ public class Client extends JFrame implements ActionListener {
        
             din = new DataInputStream(s.getInputStream());
             dout = new DataOutputStream(s.getOutputStream());
-            
+           while(true){ 
             msgInput = din.readUTF();
             a1.setText(a1.getText()+"\n" + msgInput);
-           
-            s.close();
-            
+           }
+           s.close();
+          
         }catch(Exception e){}
     }
     
